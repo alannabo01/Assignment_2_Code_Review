@@ -16,7 +16,9 @@ if ((is.numeric(as.numeric(userinput))) &
     (nchar(userinput) == 3) &  
     (as.numeric(userinput) >= 0)) { 
   
-  # AO: The code works correctly to identify the different inputs that are possible. It is also quite simple and elegant. An alternative code for this steps is:
+# AO: The code works correctly to identify the different inputs that are possible. It is also quite simple and elegant.
+# Also, try avoiding unnecessary conversions: There's no need to convert userinput to a numeric value twice. You can convert it once and store it in a variable for later use.
+  # An alternative code for this steps is:
     # if (is.na(as.integer(number))) {
     # print("Error: Input is not a numeric value.")
     # quit(save = "no")
@@ -33,7 +35,7 @@ if ((is.numeric(as.numeric(userinput))) &
   # Finding the sum of cubes of the individual digits in userinput
   cubesum <- sum(splitdigits^3)
   
-  # AO: The code above, paired with the code below, works efficiently to find an Armstrong number/ Narcissitic number.
+# AO: The code above, paired with the code below, works efficiently to find an Armstrong number/ Narcissistic number.
   # An alternative is to use the %% function in order to determine the numbers. An example is shown below:
     # digits <- c(number %/% 100, (number %/% 10) %% 10, number %% 10)
     # narcissistic <- sum(digits^3)
@@ -50,10 +52,13 @@ if ((is.numeric(as.numeric(userinput))) &
   quit()
 } # Outer if-else checking for input validity
 
-  # AO: Again, the code is done well, and the printed line is creative! Great work. Your defensive programming is also strong as it does not allow the user to input negative number, or characters.
+# AO: Again, the code is done well, and the printed line is creative! Great work. Your defensive programming is also strong as it does not allow the user to input negative number, or characters.
   # Another alternative to the code above would be (this code works alongside the code I have written earlier):
     # if (number == narcissistic) {
     # print(paste(number, "is a narcissistic number!"))
     # } else {
     # print(paste(number, "is not a narcissistic number."))
     # }
+
+# AO: Another recommendation is to clarify variable names: 
+# The variable names splitdigits and cubesum are descriptive, but it may be clearer to rename splitdigits to digits and cubesum to sumOfCubes to improve readability.
