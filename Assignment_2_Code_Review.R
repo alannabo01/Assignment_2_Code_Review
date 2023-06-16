@@ -49,3 +49,11 @@ if ((is.numeric(as.numeric(userinput))) &
   print(paste(userinput, "is an invalid input! Entry must be a positive three-digit number. Terminating..."))
   quit()
 } # Outer if-else checking for input validity
+
+  # AO: Again, the code is done well, and the printed line is creative! Great work. Your defensive programming is also strong as it does not allow the user to input negative number, or characters.
+  # Another alternative to the code above would be (this code works alongside the code I have written earlier):
+    # if (number == narcissistic) {
+    # print(paste(number, "is a narcissistic number!"))
+    # } else {
+    # print(paste(number, "is not a narcissistic number."))
+    # }
