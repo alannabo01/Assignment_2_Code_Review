@@ -16,13 +16,27 @@ if ((is.numeric(as.numeric(userinput))) &
     (nchar(userinput) == 3) &  
     (as.numeric(userinput) >= 0)) { 
   
-  # AO: The code works correctly to identify the different inputs that are possible.
+  # AO: The code works correctly to identify the different inputs that are possible. It is also quite simple and elegant. An alternative code for this steps is:
+    # if (is.na(as.integer(number))) {
+    # print("Error: Input is not a numeric value.")
+    # quit(save = "no")
+  # The code above checks if the input is numeric, and will quit if it isn't.
+    # if (number < 100 | number > 999) {
+    # print("Error: Input is not a three-digit number.")
+    # quit(save = "no")
+    #  }
+  # The code above checks to see if the integers are within the appropriate range. 
   
   #' Using strsplit to split userinput into vector of individual digits. This
   #' vector is then converted to a number and assigned to the variable splitdigits. 
   splitdigits <- as.numeric(strsplit(userinput, "")[[1]])
   # Finding the sum of cubes of the individual digits in userinput
   cubesum <- sum(splitdigits^3)
+  
+  # AO: The code above, paired with the code below, works efficiently to find an Armstrong number/ Narcissitic number.
+  # An alternative is to use the %% function in order to determine the numbers. An example is shown below:
+    # digits <- c(number %/% 100, (number %/% 10) %% 10, number %% 10)
+    # narcissistic <- sum(digits^3)
   
   # Checking if cubesum is equal to userinput. If so, number is an Armstrong number.
   if ((as.numeric(userinput)) == (cubesum)) { 
